@@ -1,0 +1,38 @@
+.wrapper__chat-main
+  .wrapper__chat-main__group-info
+    .wrapper__chat-main__group-info__left-box
+      .wrapper__chat-main__group-info__left-box__group-name
+        test
+      .wrapper__chat-main__group-info__left-box__member-name
+        membername
+    .wrapper__chat-main__group-info__right-box
+      = link_to "#", class: "wrapper__chat-main__group-info__right-box__edit-btn" do
+        Edit
+
+  .wrapper__chat-main__message-list
+    .wrapper__chat-main__message-list__message-box
+      .wrapper__chat-main__message-list__message-box__message-info
+        .wrapper__chat-main__message-list__message-box__message-info--name
+          masa
+        .wrapper__chat-main__message-list__message-box__message-info--date
+          2020/4/5(Sun) 14:14:00
+      .wrapper__chat-main__message-list__message-box__message-text
+        初投稿
+    .wrapper__chat-main__message-list__message-box
+      .wrapper__chat-main__message-list__message-box__message-info
+        %p.wrapper__chat-main__message-list__message-box__message-info--name
+          masa
+        %p.wrapper__chat-main__message-list__message-box__message-info--date
+          2020/4/6(Mon) 15:14:00
+      %p.wrapper__chat-main__message-list__message-box__message-text
+        2回目の投稿
+
+  .wrapper__chat-main__message-form
+    .wrapper__chat-main__message-form__input-box
+      %form.wrapper__chat-main__message-form__input-box__new-message
+        %input{type: "text", placeholder: "type a message", class: "wrapper__chat-main__message-form__input-box__new-message__text"}
+        %label{class: "wrapper__chat-main__message-form__input-box__new-message__image"}
+          =icon('far', 'image')
+          %input{type: "file", class: "input_file"}
+      %input{type: "submit", value: "Send", class: "wrapper__chat-main__message-form__input-box__submit-btn"}
+  
