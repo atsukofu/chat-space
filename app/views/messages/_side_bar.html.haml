@@ -3,7 +3,7 @@
     .wrapper__side-bar__side-header__box
       .wrapper__side-bar__side-header__box__user masa
       .wrapper__side-bar__side-header__box__icon-box
-        = link_to "#", class: "wrapper__side-bar__side-header__box__icon-box__edit" do
+        = link_to edit_user_path(current_user), class: "wrapper__side-bar__side-header__box__icon-box__edit" do
           = icon('fa', 'cog',)
         = link_to "#", class: "wrapper__side-bar__side-header__box__icon-box__edit" do
           = icon('fa', 'edit')
