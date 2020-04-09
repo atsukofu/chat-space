@@ -11,6 +11,10 @@
   .wrapper__side-bar__group-list
     .wrapper__side-bar__group-list__groups
       .wrapper__side-bar__group-list__groups__group-name
-        techcamp
-      .wrapper__side-bar__group-list__groups__group-message
+        -current_user.groups.each do |group|
+          .group 
+          = link_to '#' do
+            .group__name
+              = group.name
+            .wrapper__side-bar__group-list__groups__group-message
         まだメッセージがありません
