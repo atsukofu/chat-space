@@ -10,29 +10,14 @@
         Edit
 
   .wrapper__chat-main__message-list
-    .wrapper__chat-main__message-list__message-box
-      .wrapper__chat-main__message-list__message-box__message-info
-        .wrapper__chat-main__message-list__message-box__message-info--name
-          masa
-        .wrapper__chat-main__message-list__message-box__message-info--date
-          2020/4/5(Sun) 14:14:00
-      .wrapper__chat-main__message-list__message-box__message-text
-        初投稿
-    .wrapper__chat-main__message-list__message-box
-      .wrapper__chat-main__message-list__message-box__message-info
-        %p.wrapper__chat-main__message-list__message-box__message-info--name
-          masa
-        %p.wrapper__chat-main__message-list__message-box__message-info--date
-          2020/4/6(Mon) 15:14:00
-      %p.wrapper__chat-main__message-list__message-box__message-text
-        2回目の投稿
+    = render partial: 'message', collection: @messages
 
   .wrapper__chat-main__message-form
     .wrapper__chat-main__message-form__input-box
-      %form.wrapper__chat-main__message-form__input-box__new-message
-        %input{type: "text", placeholder: "type a message", class: "wrapper__chat-main__message-form__input-box__new-message__text"}
-        %label{class: "wrapper__chat-main__message-form__input-box__new-message__image"}
-          =icon('far', 'image')
-          %input{type: "file", class: "input_file"}
-      %input{type: "submit", value: "Send", class: "wrapper__chat-main__message-form__input-box__submit-btn"}
-  
+      =form_for [@group, @message] do |f|
+        .wrapper__chat-main__message-form__input-box__new-message
+          =f.text_field :content, class: 'wrapper__chat-main__message-form__input-box__new-message__text', placeholder: 'type a message'
+          =f.label :image, class: "wrapper__chat-main__message-form__input-box__new-message__image" do
+            =icon('far', 'image')
+            =f.file_field :image, class: "input_file"
+        =f.submit 'Send', class: "wrapper__chat-main__message-form__input-box__submit-btn"
