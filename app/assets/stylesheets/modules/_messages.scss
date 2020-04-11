@@ -46,13 +46,20 @@
       &__groups{
         width: 100%;
         padding: 20px 20px 40px 20px;
-        &__group-name{
-          font-size: 15px;
-          margin-bottom: 5px;
+        text-decoration: none;
+        a {
+          text-decoration: none;
         }
-        &__group-message{
-          font-size: 11px;
-        }
+          &__group-name{
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: #ffffff;
+          }
+          &__group-message{
+            font-size: 11px;
+            color: #ffffff;
+            text-decoration: none;
+          }
       }
     }
    }
@@ -101,25 +108,32 @@
       background-color: #fafafa;
       padding-top: 35px;
       padding-left: 40px;
+      overflow: scroll;
       &__message-box{
-        padding-bottom: 46px;
-        &__message-info{
-          display: flex;
-          margin-bottom: 12px;
-          &--name{
-            font-size: 16px;
-            color: #333333;
+        padding-bottom: 40px;
+          .upper-message{
+            display: flex;
+            margin-bottom: 10px;
+            &__user-name{
+              font-size: 16px;
+              color: #434a54;
+              font-weight: bold;
+            }
+            &__created-date{
+              font-size: 12px;
+              color: #999999;
+              margin-left: 10px;
+            }
           }
-          &--date{
-            font-size: 12px;
-            color: #999999;
-            margin-left: 10px;
+          .lower-message {
+            &__message-text{
+             font-size: 14px;
+             color: #434a54;
+             margin-bottom: 10px;
+            }
+            &__message-img{
+            }
           }
-        }
-        &__message-text{
-          font-size: 14px;
-          color: #434a54;
-        }
       }
      }
      
@@ -129,14 +143,17 @@
       background-color: #d2d2d2;
       display: flex;
       align-items: center;
+      z-index: 100;
       &__input-box{
         width: 100%;
-        display: flex;
+        form {
+          display: flex;
+        }
         &__new-message{
           width: 100%;
           position: relative;
           align-items: center;
-          
+          display: flex;
           &__text{
             height: 50px;
             width: 100%;
