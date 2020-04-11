@@ -9,10 +9,10 @@
           = icon('fa', 'edit')
   
   .wrapper__side-bar__group-list
-    .wrapper__side-bar__group-list__groups
-      -current_user.groups.each do |group|
-        = link_to '#' do
-          .wrapper__side-bar__group-list__groups__group-name
+    - current_user.groups.each do |group|
+      .wrapper__side-bar__group-list__groups
+        = link_to group_messages_path(group) do
+          .group-name
             = group.name
-          .wrapper__side-bar__group-list__groups__group-message
-            まだメッセージがありません
+          .group-message
+            = group.show_last_message

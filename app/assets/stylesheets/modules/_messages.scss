@@ -49,17 +49,17 @@
         text-decoration: none;
         a {
           text-decoration: none;
-        }
-          &__group-name{
+          .group-name{
             font-size: 15px;
             margin-bottom: 5px;
             color: #ffffff;
           }
-          &__group-message{
+          .group-message{
             font-size: 11px;
             color: #ffffff;
             text-decoration: none;
           }
+        }
       }
     }
    }
