@@ -2,12 +2,12 @@ $(function() {
 
   function buildHTML(message) {
     if (message.image) {
-      var html = `<div class="wrapper__chat-main__message-list__message-box">` +
+      var html = `<div class="wrapper__chat-main__message-list__message-box" data-message-id=${message.id}>` +
                    `<div class="upper-message">` +
-                     `<p class="upper-message__user-name">` +
+                     `<p class="upper-message__created-date">` +
                        message.user_name + 
                      `</p>` +
-                     `<p class="upper-message__created-date">` +
+                     `<p class="upper-message__create-date">` +
                        message.created_at +
                      `</p>` +
                    `</div>` +
@@ -20,7 +20,7 @@ $(function() {
                  `</div>`
       return html;
     } else {
-      var html = `<div class="wrapper__chat-main__message-list__message-box">` +
+      var html = `<div class="wrapper__chat-main__message-list__message-box" data-message-id=${message.id}>` +
                    `<div class="upper-message">` +
                      `<p class="upper-message__user-name">` +
                        message.user_name + 
@@ -38,7 +38,7 @@ $(function() {
       return html;
     };
   }
-
+      
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -63,4 +63,34 @@ $(function() {
       $('.wrapper__chat-main__message-form__input-box__submit-btn').prop('disabled', false);
     });
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.wrapper__chat-main__message-list__message-box:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i,message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.wrapper__chat-main__message-list').append(insertHTML);
+        $('.wrapper__chat-main__message-list').animate({ scrollTop: $('.wrapper__chat-main__message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
+      
+
+
+  
