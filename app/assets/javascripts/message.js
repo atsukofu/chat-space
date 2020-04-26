@@ -4,10 +4,10 @@ $(function() {
     if (message.image) {
       var html = `<div class="wrapper__chat-main__message-list__message-box" data-message-id=${message.id}>` +
                    `<div class="upper-message">` +
-                     `<p class="upper-message__created-date">` +
+                     `<p class="upper-message__user-name">` +
                        message.user_name + 
                      `</p>` +
-                     `<p class="upper-message__create-date">` +
+                     `<p class="upper-message__created-date">` +
                        message.created_at +
                      `</p>` +
                    `</div>` +
