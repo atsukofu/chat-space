@@ -42,7 +42,6 @@ group :development, :test do
   gem 'compass-rails', github: 'Compass/compass-rails'
   gem 'sprockets'
   gem 'kaminari'
-  gem 'devise'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
@@ -79,6 +78,7 @@ gem 'font-awesome-sass'
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise'
 
 group :production do
   gem 'unicorn', '5.4.1'
